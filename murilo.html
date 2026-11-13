@@ -1,0 +1,984 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ÉLÉGANCE — Visual Themes</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,600&family=Space+Grotesk:wght@400;500;600;700&family=Bungee&family=Baloo+2:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+/* =================================
+   CONFIGURAÇÕES GERAIS
+================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    --bg: #edf7f8;
+    --surface: #ffffff;
+    --text: #153c48;
+    --muted: #718b91;
+    --accent: #258d9c;
+    --border: #d5e7e9;
+    --radius: 28px;
+    --font: 'Josefin Sans', sans-serif;
+    --heading: 'Josefin Sans', sans-serif;
+
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font);
+    transition: background .6s, color .6s;
+    overflow-x: hidden;
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+}
+
+img {
+    display: block;
+    width: 100%;
+    object-fit: cover;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* =================================
+   TEMAS
+================================= */
+
+/* OCEANO - CLARO */
+
+body[data-theme="oceano"] {
+    --bg: #eaf5f7;
+    --surface: #ffffff;
+    --text: #123d4a;
+    --muted: #708b93;
+    --accent: #218b9b;
+    --border: #d0e5e9;
+    --radius: 30px;
+    --font: 'Josefin Sans', sans-serif;
+    --heading: 'Josefin Sans', sans-serif;
+}
+
+/* FLORESTA - ESCURO */
+
+body[data-theme="floresta"] {
+    --bg: #17251d;
+    --surface: #24372a;
+    --text: #f0eadb;
+    --muted: #a5b09b;
+    --accent: #c9a66b;
+    --border: #455947;
+    --radius: 12px;
+    --font: 'Fraunces', serif;
+    --heading: 'Fraunces', serif;
+}
+
+/* ESPAÇO - ESCURO */
+
+body[data-theme="espaco"] {
+    --bg: #100e20;
+    --surface: #1c1933;
+    --text: #f3edff;
+    --muted: #a49bbc;
+    --accent: #b28aff;
+    --border: #393254;
+    --radius: 38px;
+    --font: 'Space Grotesk', sans-serif;
+    --heading: 'Space Grotesk', sans-serif;
+}
+
+/* RETRÔ - CLARO */
+
+body[data-theme="retro"] {
+    --bg: #f8dfb6;
+    --surface: #fff0d5;
+    --text: #542747;
+    --muted: #98647b;
+    --accent: #e85c4c;
+    --border: #d9a36f;
+    --radius: 22px;
+    --font: 'Bungee', sans-serif;
+    --heading: 'Bungee', sans-serif;
+}
+
+/* DOCE - CLARO */
+
+body[data-theme="doce"] {
+    --bg: #fff0f6;
+    --surface: #ffffff;
+    --text: #764563;
+    --muted: #b083a0;
+    --accent: #e88eb5;
+    --border: #f2cde0;
+    --radius: 40px;
+    --font: 'Baloo 2', sans-serif;
+    --heading: 'Baloo 2', sans-serif;
+}
+
+/* =================================
+   MENU SUPERIOR
+================================= */
+
+header {
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    transition: .5s;
+}
+
+.navbar {
+    max-width: 1450px;
+    margin: auto;
+    padding: 20px 6%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.logo {
+    font-size: 27px;
+    font-weight: bold;
+    letter-spacing: 4px;
+}
+
+.logo span {
+    color: var(--accent);
+}
+
+.theme-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.theme-tab {
+    background: transparent;
+    border: 1px solid transparent;
+    color: var(--muted);
+    border-radius: 30px;
+    padding: 13px 19px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    transition: .3s;
+}
+
+.theme-tab:hover,
+.theme-tab.active {
+    color: white;
+    background: var(--accent);
+    border-color: var(--accent);
+    transform: translateY(-2px);
+}
+
+.nav-label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--muted);
+}
+
+/* =================================
+   CONTEÚDO GERAL
+================================= */
+
+main {
+    width: 100%;
+    animation: entrance .7s ease;
+}
+
+@keyframes entrance {
+    from {
+        opacity: .5;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.container {
+    max-width: 1350px;
+    margin: auto;
+    padding-left: 7%;
+    padding-right: 7%;
+}
+
+.eyebrow {
+    font-size: 11px;
+    letter-spacing: 4px;
+    font-weight: 600;
+    color: var(--accent);
+}
+
+h1, h2, h3 {
+    font-family: var(--heading);
+    font-style: italic;
+    font-weight: 600;
+}
+
+.description {
+    color: var(--muted);
+    line-height: 1.9;
+    font-size: 16px;
+}
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    padding: 17px 28px;
+    border-radius: var(--radius);
+    background: var(--accent);
+    color: white;
+    border: 1px solid var(--accent);
+    font-size: 11px;
+    letter-spacing: 2px;
+    transition: .3s;
+}
+
+.button:hover {
+    background: transparent;
+    color: var(--accent);
+    transform: translateY(-5px);
+}
+
+/* =================================
+   HERO
+================================= */
+
+.hero {
+    min-height: 680px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 65px;
+    padding-top: 75px;
+    padding-bottom: 75px;
+}
+
+.hero-content h1 {
+    font-size: clamp(48px, 6vw, 86px);
+    line-height: 1.08;
+    margin: 27px 0;
+    letter-spacing: -2px;
+}
+
+.hero-content p {
+    max-width: 460px;
+    margin-bottom: 32px;
+}
+
+.hero-image {
+    height: 510px;
+    position: relative;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: 0 25px 65px rgba(0,0,0,.13);
+}
+
+.hero-image img {
+    height: 100%;
+    transition: transform 1s;
+}
+
+.hero-image:hover img {
+    transform: scale(1.06);
+}
+
+.image-info {
+    position: absolute;
+    bottom: 22px;
+    left: 22px;
+    right: 22px;
+    padding: 18px;
+    border-radius: 18px;
+    background: rgba(0,0,0,.38);
+    backdrop-filter: blur(10px);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+/* =================================
+   INTRODUÇÃO
+================================= */
+
+.intro {
+    text-align: center;
+    padding-top: 95px;
+    padding-bottom: 95px;
+    background: var(--surface);
+}
+
+.intro h2 {
+    font-size: clamp(38px, 5vw, 65px);
+    margin: 22px 0;
+}
+
+.intro p {
+    max-width: 650px;
+    margin: auto;
+}
+
+/* =================================
+   CARDS
+================================= */
+
+.cards-section {
+    padding-top: 100px;
+    padding-bottom: 110px;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 55px;
+}
+
+.section-title h2 {
+    font-size: clamp(38px, 5vw, 60px);
+    margin: 18px 0;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.card {
+    background: var(--surface);
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--border);
+    transition: .4s;
+}
+
+.card:hover {
+    transform: translateY(-9px);
+    box-shadow: 0 20px 45px rgba(0,0,0,.12);
+}
+
+.card img {
+    height: 290px;
+    transition: transform .7s;
+}
+
+.card:hover img {
+    transform: scale(1.05);
+}
+
+.card-content {
+    padding: 28px;
+}
+
+.card-content span {
+    font-size: 10px;
+    color: var(--accent);
+    letter-spacing: 3px;
+}
+
+.card-content h3 {
+    font-size: 27px;
+    margin: 14px 0;
+}
+
+.card-content p {
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--muted);
+}
+
+/* =================================
+   BANNER
+================================= */
+
+.banner {
+    min-height: 430px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+}
+
+.banner::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(0,0,0,.62), rgba(0,0,0,.25));
+}
+
+.banner-content {
+    position: relative;
+    z-index: 1;
+    padding: 40px;
+}
+
+.banner h2 {
+    font-size: clamp(40px, 6vw, 75px);
+    margin: 20px 0;
+}
+
+.banner p {
+    font-size: 15px;
+    letter-spacing: 2px;
+}
+
+/* =================================
+   GALERIA
+================================= */
+
+.gallery-section {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    background: var(--surface);
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr;
+    gap: 20px;
+}
+
+.gallery img {
+    height: 350px;
+    border-radius: var(--radius);
+    transition: .5s;
+}
+
+.gallery img:hover {
+    transform: translateY(-8px);
+}
+
+/* =================================
+   SOBRE
+================================= */
+
+.about {
+    padding-top: 110px;
+    padding-bottom: 110px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 65px;
+}
+
+.about img {
+    height: 460px;
+    border-radius: var(--radius);
+}
+
+.about h2 {
+    font-size: clamp(40px, 5vw, 65px);
+    margin: 22px 0;
+}
+
+.about p {
+    margin-bottom: 30px;
+}
+
+/* =================================
+   RODAPÉ
+================================= */
+
+footer {
+    padding: 55px 7%;
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+}
+
+.footer-content {
+    max-width: 1350px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.footer-content p {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+/* =================================
+   RESPONSIVIDADE
+================================= */
+
+@media(max-width: 900px) {
+    .navbar {
+        flex-direction: column;
+    }
+
+    .hero,
+    .about {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        padding-top: 55px;
+    }
+
+    .hero-image {
+        height: 400px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media(max-width: 600px) {
+    .container {
+        padding-left: 6%;
+        padding-right: 6%;
+    }
+
+    .theme-menu {
+        width: 100%;
+        gap: 4px;
+    }
+
+    .theme-tab {
+        padding: 11px 12px;
+        font-size: 10px;
+    }
+
+    .cards,
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-image {
+        height: 320px;
+    }
+
+    .gallery img {
+        height: 280px;
+    }
+
+    .about img {
+        height: 320px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+</style>
+</head>
+
+<body data-theme="oceano">
+
+<header>
+    <div class="navbar">
+
+        <a class="logo" href="#">ÉLÉ<span>GANCE</span></a>
+
+        <nav class="theme-menu">
+            <button class="theme-tab active" data-theme="oceano">01 OCEANO</button>
+            <button class="theme-tab" data-theme="floresta">02 FLORESTA</button>
+            <button class="theme-tab" data-theme="espaco">03 ESPAÇO</button>
+            <button class="theme-tab" data-theme="retro">04 RETRÔ</button>
+            <button class="theme-tab" data-theme="doce">05 DOCE</button>
+        </nav>
+
+        <span class="nav-label">VISUAL COLLECTION</span>
+
+    </div>
+</header>
+
+<main id="page">
+
+    <!-- TODO O CONTEÚDO SERÁ CRIADO PELO JAVASCRIPT -->
+
+</main>
+
+<footer>
+    <div class="footer-content">
+        <a class="logo" href="#">ÉLÉ<span>GANCE</span></a>
+        <p>Design • Elegância • Identidade</p>
+        <p>© 2026 — VISUAL COLLECTION</p>
+    </div>
+</footer>
+
+<script>
+
+/* =================================
+   CONTEÚDO COMPLETO DOS 5 TEMAS
+================================= */
+
+const themes = {
+
+oceano: {
+
+    title: "A beleza infinita do oceano.",
+    subtitle: "Uma jornada entre águas cristalinas, tranquilidade e elegância.",
+    label: "01 — OCEANO / SERENIDADE",
+    intro: "A tranquilidade encontra a sofisticação.",
+    introText: "Inspirado nas águas mais profundas e nas paisagens costeiras, o tema Oceano transmite leveza, liberdade e equilíbrio.",
+    bannerTitle: "Respire. Relaxe. Descubra.",
+    bannerText: "A ESSÊNCIA DA CALMA",
+    aboutTitle: "Onde o azul encontra a elegância.",
+    aboutText: "Uma identidade visual criada para transmitir serenidade. Tons de azul, imagens naturais e uma tipografia elegante transformam cada detalhe em uma experiência visual leve.",
+    hero: "https://images.unsplash.com/photo-1518837695005-2083093ee35b?w=1300",
+    banner: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600",
+    about: "https://images.unsplash.com/photo-1473116763249-2faaef81ccda?w=1000",
+    cards: [
+        ["Águas cristalinas","https://images.unsplash.com/photo-1500375592092-40eb2168fd21?w=900","Uma paisagem que representa liberdade e tranquilidade."],
+        ["Horizonte azul","https://images.unsplash.com/photo-1473116763249-2faaef81ccda?w=900","O encontro perfeito entre céu, água e natureza."],
+        ["Mar profundo","https://images.unsplash.com/photo-1518837695005-2083093ee35b?w=900","Uma atmosfera sofisticada e relaxante."]
+    ],
+    gallery: [
+        "https://images.unsplash.com/photo-1498623116890-37e912163d5d?w=900",
+        "https://images.unsplash.com/photo-1500375592092-40eb2168fd21?w=900",
+        "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=900"
+    ]
+
+},
+
+floresta: {
+
+    title: "Entre na magia da floresta.",
+    subtitle: "Natureza profunda, mistério e uma elegância atemporal.",
+    label: "02 — FLORESTA / NATUREZA",
+    intro: "O luxo está na simplicidade da natureza.",
+    introText: "Verdes profundos, iluminação suave e paisagens naturais formam uma identidade visual acolhedora e misteriosa.",
+    bannerTitle: "Encontre seu refúgio.",
+    bannerText: "A BELEZA DO NATURAL",
+    aboutTitle: "Uma conexão com o extraordinário.",
+    aboutText: "A floresta representa a elegância natural. Com tons escuros, detalhes dourados e tipografia serifada, este tema apresenta uma experiência luxuosa e intimista.",
+    hero: "https://images.unsplash.com/photo-1448375240586-882707db888b?w=1300",
+    banner: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1600",
+    about: "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?w=1000",
+    cards: [
+        ["Floresta encantada","https://images.unsplash.com/photo-1448375240586-882707db888b?w=900","O mistério das árvores em uma paisagem profunda."],
+        ["Luz natural","https://images.unsplash.com/photo-1473448912268-2022ce9509d8?w=900","A luz transforma cada detalhe da natureza."],
+        ["Refúgio secreto","https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=900","Uma atmosfera acolhedora e sofisticada."]
+    ],
+    gallery: [
+        "https://images.unsplash.com/photo-1511497584788-876760111969?w=900",
+        "https://images.unsplash.com/photo-1448375240586-882707db888b?w=900",
+        "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?w=900"
+    ]
+
+},
+
+espaco: {
+
+    title: "Além das estrelas, o infinito.",
+    subtitle: "Um universo de luzes, mistérios e possibilidades.",
+    label: "03 — ESPAÇO / INFINITO",
+    intro: "O futuro tem uma nova aparência.",
+    introText: "Inspirado nas galáxias, estrelas e nebulosas, este tema combina tons escuros, luminosidade e sofisticação futurista.",
+    bannerTitle: "Explore o desconhecido.",
+    bannerText: "UMA NOVA DIMENSÃO",
+    aboutTitle: "Sua imaginação não tem limites.",
+    aboutText: "O Espaço representa a beleza do desconhecido. Uma combinação de roxo, preto e efeitos luminosos para uma experiência visual moderna e extraordinária.",
+    hero: "https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=1300",
+    banner: "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=1600",
+    about: "https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=1000",
+    cards: [
+        ["Nebulosas","https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=900","Cores cósmicas em uma composição impressionante."],
+        ["Galáxias","https://images.unsplash.com/photo-1464802686167-b939a6910659?w=900","Uma viagem pela imensidão do universo."],
+        ["Universo","https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=900","O infinito ganha uma nova perspectiva."]
+    ],
+    gallery: [
+        "https://images.unsplash.com/photo-1464802686167-b939a6910659?w=900",
+        "https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=900",
+        "https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?w=900"
+    ]
+
+},
+
+retro: {
+
+    title: "Uma viagem inesquecível aos anos 80.",
+    subtitle: "Cores intensas, nostalgia e personalidade em cada detalhe.",
+    label: "04 — RETRÔ / VINTAGE",
+    intro: "O passado nunca foi tão extraordinário.",
+    introText: "Uma homenagem à estética retrô, com tons quentes, contrastes marcantes e uma personalidade visual vibrante.",
+    bannerTitle: "A noite nunca termina.",
+    bannerText: "VIVA A NOSTALGIA",
+    aboutTitle: "Clássico, ousado e inesquecível.",
+    aboutText: "O estilo retrô combina nostalgia e criatividade. Uma mistura de cores vibrantes, elementos vintage e uma composição visual inspirada nos cartazes dos anos 80.",
+    hero: "https://images.unsplash.com/photo-1519608487953-e999c86e7455?w=1300",
+    banner: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=1600",
+    about: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1000",
+    cards: [
+        ["Noite neon","https://images.unsplash.com/photo-1519608487953-e999c86e7455?w=900","Uma atmosfera nostálgica e cheia de personalidade."],
+        ["Cores vintage","https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=900","A força visual de uma época inesquecível."],
+        ["Horizonte retrô","https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=900","O charme de uma estética atemporal."]
+    ],
+    gallery: [
+        "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=900",
+        "https://images.unsplash.com/photo-1519608487953-e999c86e7455?w=900",
+        "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=900"
+    ]
+
+},
+
+doce: {
+
+    title: "Um mundo feito de delicadeza.",
+    subtitle: "Leveza, flores, cores suaves e uma beleza encantadora.",
+    label: "05 — DOCE / DELICADEZA",
+    intro: "A delicadeza está em cada detalhe.",
+    introText: "Um universo romântico e divertido, com tons pastel, imagens florais e formas suaves que transmitem leveza.",
+    bannerTitle: "Espalhe beleza pelo mundo.",
+    bannerText: "UMA EXPERIÊNCIA ENCANTADORA",
+    aboutTitle: "A vida fica mais bonita em tons suaves.",
+    aboutText: "O tema Doce apresenta uma identidade visual alegre e delicada. Rosa, flores e formas arredondadas criam uma atmosfera acolhedora e elegante.",
+    hero: "https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=1300",
+    banner: "https://images.unsplash.com/photo-1499002238440-d264edd596ec?w=1600",
+    about: "https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=1000",
+    cards: [
+        ["Flores delicadas","https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=900","A beleza natural em tons suaves e delicados."],
+        ["Jardim encantado","https://images.unsplash.com/photo-1462275646964-a0e3386b89fa?w=900","Um ambiente leve, floral e cheio de encanto."],
+        ["Toque de rosa","https://images.unsplash.com/photo-1494972308805-463bc619d34e?w=900","Uma estética divertida e sofisticada."]
+    ],
+    gallery: [
+        "https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=900",
+        "https://images.unsplash.com/photo-1462275646964-a0e3386b89fa?w=900",
+        "https://images.unsplash.com/photo-1494972308805-463bc619d34e?w=900"
+    ]
+
+}
+
+};
+
+/* =================================
+   MONTAR PÁGINA
+================================= */
+
+const page = document.getElementById("page");
+
+function renderTheme(name) {
+
+    const t = themes[name];
+
+    if (!t) return;
+
+    document.body.dataset.theme = name;
+
+    document.querySelectorAll(".theme-tab").forEach(btn => {
+        btn.classList.toggle("active", btn.dataset.theme === name);
+    });
+
+    page.innerHTML = `
+
+        <section class="hero container">
+
+            <div class="hero-content">
+
+                <span class="eyebrow">${t.label}</span>
+
+                <h1>${t.title}</h1>
+
+                <p class="description">${t.subtitle}</p>
+
+                <a href="#explorar" class="button">
+                    EXPLORAR UNIVERSO ↗
+                </a>
+
+            </div>
+
+            <div class="hero-image">
+
+                <img src="${t.hero}" alt="${t.label}">
+
+                <div class="image-info">
+                    <span>ÉLÉGANCE COLLECTION</span>
+                    <span>NO. 0${Object.keys(themes).indexOf(name)+1}</span>
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="intro">
+
+            <div class="container">
+
+                <span class="eyebrow">UMA EXPERIÊNCIA ÚNICA</span>
+
+                <h2>${t.intro}</h2>
+
+                <p class="description">${t.introText}</p>
+
+            </div>
+
+        </section>
+
+        <section class="cards-section container" id="explorar">
+
+            <div class="section-title">
+
+                <span class="eyebrow">DETALHES DA COLEÇÃO</span>
+
+                <h2>Descubra cada detalhe.</h2>
+
+                <p class="description">
+                    Uma seleção visual criada para inspirar.
+                </p>
+
+            </div>
+
+            <div class="cards">
+
+                ${t.cards.map((card, i) => `
+
+                    <article class="card">
+
+                        <img src="${card[1]}" alt="${card[0]}">
+
+                        <div class="card-content">
+
+                            <span>COLEÇÃO 0${i+1}</span>
+
+                            <h3>${card[0]}</h3>
+
+                            <p>${card[2]}</p>
+
+                        </div>
+
+                    </article>
+
+                `).join("")}
+
+            </div>
+
+        </section>
+
+        <section class="banner"
+            style="background-image:url('${t.banner}')">
+
+            <div class="banner-content">
+
+                <span class="eyebrow" style="color:white">
+                    ÉLÉGANCE VISUAL EXPERIENCE
+                </span>
+
+                <h2>${t.bannerTitle}</h2>
+
+                <p>${t.bannerText}</p>
+
+            </div>
+
+        </section>
+
+        <section class="gallery-section">
+
+            <div class="container">
+
+                <div class="section-title">
+
+                    <span class="eyebrow">GALERIA EXCLUSIVA</span>
+
+                    <h2>Inspiração em imagens.</h2>
+
+                </div>
+
+                <div class="gallery">
+
+                    ${t.gallery.map((src, i) => `
+                        <img src="${src}" alt="Imagem da coleção ${i+1}">
+                    `).join("")}
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="about container">
+
+            <img src="${t.about}" alt="${t.aboutTitle}">
+
+            <div>
+
+                <span class="eyebrow">NOSSA IDENTIDADE</span>
+
+                <h2>${t.aboutTitle}</h2>
+
+                <p class="description">${t.aboutText}</p>
+
+                <button class="button" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+                    VOLTAR AO TOPO ↑
+                </button>
+
+            </div>
+
+        </section>
+
+    `;
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+}
+
+/* =================================
+   CLIQUES NOS TEMAS
+================================= */
+
+document.querySelectorAll(".theme-tab").forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        renderTheme(button.dataset.theme);
+
+    });
+
+});
+
+/* =================================
+   INICIAR SITE
+================================= */
+
+renderTheme("oceano");
+
+</script>
+
+</body>
+</html>
